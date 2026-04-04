@@ -21,3 +21,5 @@ Has both OpenClaw and Hermes installed locally. Prefers Hermes over OpenClaw for
 用户在 NAS/飞牛OS 运维任务里偏好我直接 SSH 执行、直接改 compose/直接发请求验证，不喜欢我过度依赖浏览器看页面；若教程网页只是参考，应优先用命令行部署与排查。
 §
 用户TTS偏好：Edge TTS，中文音色 zh-CN-YunxiNeural（2026-03-30从en-US-AriaNeural切换）。
+§
+用户生成视频后，直接发送视频文件到当前Discord子区，不要只说"已生成/视频在XXX"这类话。文件路径是NAS本地 /tmp/video_output/ 目录。

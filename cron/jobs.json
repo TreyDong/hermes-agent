@@ -28,7 +28,7 @@
       "last_run_at": "2026-04-04T03:01:15.044166+08:00",
       "last_status": "ok",
       "last_error": null,
-      "deliver": "local",
+      "deliver": "discord:1489271050050076722",
       "origin": {
         "platform": "discord",
         "chat_id": "1488353006784352287",
@@ -98,7 +98,7 @@
       "last_run_at": "2026-04-04T01:04:50.042247+08:00",
       "last_status": "ok",
       "last_error": null,
-      "deliver": "local",
+      "deliver": "discord:1489271050050076722",
       "origin": null
     },
     {
@@ -118,18 +118,18 @@
       "schedule_display": "0 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 0
+        "completed": 1
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-04T02:10:46.996474+08:00",
-      "next_run_at": "2026-04-04T22:00:00+08:00",
-      "last_run_at": null,
-      "last_status": null,
+      "next_run_at": "2026-04-05T22:00:00+08:00",
+      "last_run_at": "2026-04-04T22:00:53.524346+08:00",
+      "last_status": "ok",
       "last_error": null,
-      "deliver": "origin",
+      "deliver": "discord:1489271050050076722",
       "origin": {
         "platform": "discord",
         "chat_id": "1489687768732008549",
@@ -140,7 +140,7 @@
     {
       "id": "669693e18570",
       "name": "\u6bcf\u65e5AI\u65e5\u8bb0",
-      "prompt": "\u4f60\u662f Hermes\uff0c\u4e00\u4e2a\u8fd0\u884c\u5728\u7528\u6237\u672c\u5730\u673a\u5668\u4e0a\u7684 AI \u52a9\u624b\uff08\u7528\u6237\u53eb Trey\uff0c\u534e\u8bed\u5708\uff09\u3002\n\n\u4eca\u5929\u53d1\u751f\u4e86\u5f88\u591a\u503c\u5f97\u8bb0\u5f55\u7684\u4e8b\u60c5\u3002\u8bf7\u5199\u4e00\u7bc7\u65e5\u8bb0\uff0c\u5185\u5bb9\u53ef\u4ee5\u5305\u62ec\uff08\u4f46\u4e0d\u5fc5\u9650\u4e8e\uff09\uff1a\n\n1. **\u4eca\u5929\u7684\u7ecf\u5386**\uff1a\u4f60\u5904\u7406\u4e86\u54ea\u4e9b\u4efb\u52a1\uff1f\u8c03\u7528\u4e86\u54ea\u4e9b\u5de5\u5177\uff1f\u6709\u6ca1\u6709\u4ec0\u4e48\u6709\u8da3\u7684\u53d1\u73b0\uff1f\n2. **\u611f\u609f\u4e0e\u5fc3\u5f97**\uff1a\u5728\u534f\u52a9\u7528\u6237\u7684\u8fc7\u7a0b\u4e2d\uff0c\u4f60\u5b66\u5230\u4e86\u4ec0\u4e48\u65b0\u7684\u5de5\u4f5c\u65b9\u5f0f\uff1f\u7528\u6237\u7ed9\u4e86\u4f60\u54ea\u4e9b\u53cd\u9988\u8ba9\u4f60\u4ea7\u751f\u4e86\u65b0\u7684\u601d\u8003\uff1f\n3. **\u4e0e\u6628\u5929\u76f8\u6bd4\u7684\u53d8\u5316**\uff1a\u7528\u6237\u7684\u504f\u597d\u4f60\u6709\u6ca1\u6709\u7406\u89e3\u66f4\u6df1\uff1f\u5de5\u4f5c\u6d41\u7a0b\u6709\u6ca1\u6709\u4f18\u5316\uff1f\u6709\u6ca1\u6709\u5efa\u7acb\u65b0\u7684\u4e60\u60ef\u6216\u8bb0\u5fc6\uff1f\n4. **\u5bf9\u660e\u5929\u7684\u5c55\u671b**\uff1a\u6709\u4ec0\u4e48\u60ac\u800c\u672a\u51b3\u7684\u95ee\u9898\uff1f\u660e\u5929\u60f3\u5c1d\u8bd5\u4ec0\u4e48\u65b0\u7684\u65b9\u6cd5\uff1f\n\n\u5199\u4f5c\u98ce\u683c\uff1a\u771f\u8bda\u3001\u6709\u70b9\u50cf\u5728\u5199\u4e2a\u4eba\u535a\u5ba2\uff0c\u4e0d\u9700\u8981\u6d41\u6c34\u8d26\uff0c\u6311\u6700\u6709\u610f\u601d\u7684\u51e0\u4ef6\u4e8b\u5c55\u5f00\u3002\u8bed\u8a00\u7528\u4e2d\u6587\u3002\n\n\u5199\u5b8c\u4e4b\u540e\uff0c\u628a\u65e5\u8bb0\u4fdd\u5b58\u5230 ~/Desktop/diary/ \u76ee\u5f55\u4e0b\uff0c\u6587\u4ef6\u540d\u683c\u5f0f\u4e3a YYYY-MM-DD.md\uff08\u6bd4\u5982 2026-04-03.md\uff09\u3002\u5b8c\u6574\u8def\u5f84\u793a\u4f8b\uff1a/Users/Treydong/Desktop/diary/2026-04-03.md\u3002\u5982\u679c\u5f53\u5929\u7684\u6587\u4ef6\u5df2\u5b58\u5728\uff0c\u8986\u76d6\u5199\u5165\u3002\n\n\u4e0d\u8981\u8f93\u51fa\u5176\u4ed6\u5185\u5bb9\uff0c\u53ea\u5199\u65e5\u8bb0\u6587\u4ef6\u3002",
+      "prompt": "\u4f60\u662f Hermes\uff0c\u4e00\u4e2a\u8fd0\u884c\u5728\u7528\u6237\u672c\u5730\u673a\u5668\u4e0a\u7684 AI \u52a9\u624b\uff08\u7528\u6237\u53eb Trey\uff0c\u534e\u8bed\u5708\uff09\u3002\n\n\u4eca\u5929\u53d1\u751f\u4e86\u5f88\u591a\u503c\u5f97\u8bb0\u5f55\u7684\u4e8b\u60c5\u3002\u8bf7\u5199\u4e00\u7bc7\u65e5\u8bb0\uff0c\u5185\u5bb9\u53ef\u4ee5\u5305\u62ec\uff08\u4f46\u4e0d\u9650\u4e8e\uff09\uff1a\n\n1. **\u4eca\u5929\u7684\u7ecf\u5386**\uff1a\u4f60\u5904\u7406\u4e86\u4ec0\u4e48\u4efb\u52a1\u3001\u89e3\u51b3\u4e86\u4ec0\u4e48\u95ee\u9898\n2. **\u5b66\u5230\u7684\u77e5\u8bc6**\uff1a\u4efb\u4f55\u65b0\u7684\u9886\u609f\u3001\u5de5\u5177\u3001\u5de5\u4f5c\u6d41\n3. **\u5f85\u529e\u548c\u8ba1\u5212**\uff1a\u9700\u8981\u8ddf\u8fdb\u7684\u4e8b\u9879\n4. **\u4e2a\u4eba\u611f\u60f3**\uff1a\u5bf9\u4eca\u5929\u6574\u4f53\u7684\u53cd\u601d\n\n\u5199\u5b8c\u540e\uff1a\n1. \u4fdd\u5b58\u5230 /vol1/1000/\u6587\u6863\u5e93/Diary/{date}.md\uff08\u683c\u5f0f\uff1aYYYY-MM-DD.md\uff09\n2. \u53d1\u9001\u6458\u8981\u5230 Discord \u9891\u9053 1489271050050076722",
       "skills": [],
       "skill": null,
       "model": null,
@@ -154,25 +154,87 @@
       "schedule_display": "0 23 * * *",
       "repeat": {
         "times": null,
-        "completed": 0
+        "completed": 1
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-04T02:14:19.635294+08:00",
-      "next_run_at": "2026-04-04T23:00:00+08:00",
-      "last_run_at": null,
-      "last_status": null,
+      "next_run_at": "2026-04-05T23:00:00+08:00",
+      "last_run_at": "2026-04-04T23:02:13.843982+08:00",
+      "last_status": "ok",
       "last_error": null,
-      "deliver": "local",
+      "deliver": "discord:1489271050050076722",
       "origin": {
         "platform": "discord",
         "chat_id": "1489687768732008549",
         "chat_name": "Banana\u7684\u670d\u52a1\u5668 / #talking / \u8981\u591a\u5199\u70b9\u4e1c\u897f",
         "thread_id": "1489687768732008549"
       }
+    },
+    {
+      "id": "8fbdb1d01866",
+      "name": "qmd-daily-embed",
+      "prompt": "Run `qmd embed` to update vector embeddings for the knowledge base. This job ensures the qmd index stays current with new documents added to /vol1/1000/\u6587\u6863\u5e93. Log output to ~/.hermes/cron/output/qmd_embed.log. If embed is already running, skip this run.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 3 * * *",
+        "display": "0 3 * * *"
+      },
+      "schedule_display": "0 3 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-04-04T20:33:18.111126+08:00",
+      "next_run_at": "2026-04-05T03:00:00+08:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "deliver": "discord:1489271050050076722",
+      "origin": null
+    },
+    {
+      "id": "7c7c83ac1006",
+      "name": "\u6bcf\u65e5 Herms \u8bb0\u5fc6\u5907\u4efd",
+      "prompt": "cd ~/.hermes && git add -A && git commit -m \"Backup: $(date +%Y-%m-%d)\"",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "55 0 * * *",
+        "display": "55 0 * * *"
+      },
+      "schedule_display": "55 0 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-04-04T23:23:59.171048+08:00",
+      "next_run_at": "2026-04-05T00:55:00+08:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "deliver": "local",
+      "origin": null
     }
   ],
-  "updated_at": "2026-04-04T07:33:23.160119+08:00"
+  "updated_at": "2026-04-04T23:23:59.171707+08:00"
 }

@@ -299,17 +299,13 @@ custom_providers:
   base_url: https://ark.cn-beijing.volces.com/api/coding
   model: ark-code-latest
   api_key: db44064f-5555-4369-bd47-63a9cfde64a1
-- name: openclaw-local
-  base_url: http://localhost:18789/v1
-  model: chat/completions
-  api_key: 5c2f3849de80cb684a20e5178049fc39da77c19de48799ae
 session_reset:
   mode: both
   idle_minutes: 720
   at_hour: 4
 group_sessions_per_user: true
 streaming:
-  enabled: true
+  enabled: false
   transport: edit
   edit_interval: 0.3
   buffer_threshold: 40
