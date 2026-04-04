@@ -1,4 +1,4 @@
-CLI: /Users/Treydong/bin/discord-ops。用户说“子区”即 Discord thread。若只 archive 线程，thread 会移到线程列表，但父频道主聊天区里的入口消息可能仍可见；若要彻底隐藏入口，需要删除 thread starter message（父频道里的发起消息，ID 通常等于 thread_id）再 archive。用户说“只执行/不要回复任何消息”时，执行完不输出任何文字。
+Discord服务器香蕉的服务器 ID: 1453031874082373687
 §
 Hermes文档直连路径：GitHub raw content（不依赖 docs.nousresearch.com 域名解析）—— website/docs/ 目录下的 markdown 文件可通过 https://raw.githubusercontent.com/NousResearch/hermes-agent/main/website/docs/... 访问。curl + grep 是最稳的抓取方式。Advanced路线三文档：user-guide/docker.md（Deployment）、reference/cli-commands.md（Command Reference）、developer-guide/architecture.md（Architecture）。
 §
@@ -12,10 +12,7 @@ Hermes在Discord是纯文本模式，无法监听/回应语音频道。用户曾
 §
 Hermes Discord session加载Bug（2026-04-06）：gateway/session.py 的 load_transcript() 只读 .jsonl，但 run_agent.py 写 session 用的是 sessions/session_{id}.json（三源：jsonl/json/SQLite取最长）。修复已写但需restart gateway生效。sessions.json索引有时脱节（指向旧session ID）。
 §
-我运行在 NAS（192.168.31.154）本地，不是远程连接。直接执行命令，无需 sshpass/ssh。
-NAS 用户：banana（sudo 免密），Docker 数据目录：/vol1/docker。
-飞书CLI（/home/banana/.lark-cli/）、千帆（/home/banana/.cf/）都在本地。
-Mac 上只有 opencli + Chrome 浏览器供远程操控网页用。
+我的 HERMES_HOME=/home/banana/.hermes/（NAS），配置文件都在 NAS 上，不是 Mac 上。SOUL.md 存在于 /home/banana/.hermes/SOUL.md。
 §
 Hermes cron：每日01:00 Memory Dreaming；03:00 Skill Health Check；07:30 早报（twitter-cli，Discord格式化）。输出: ~/.hermes/cron/output/
 早报Twitter bug：Agent总把昨天推文误判为今日已发。对比createdAtLocal前8位与`date +%Y-%m-%d`。用户名=treydtw。
@@ -29,3 +26,14 @@ opencli + Mac 浏览器是最终方案：无头浏览器搞不定的网站操作
 用户视频/媒体文件存放目录：/vol1/1000/文档库/20-Studio/（飞牛OS路径）
 §
 qmd 知识库路径：/vol1/1000/文档库/（collection: docs, qmd://docs/）
+§
+Polanyi命名框架法则（2026-04-07）：当用户讨论AI/知识/方法论时，优先用"名字调用"而非"描述"。这是指：面对一个洞见或问题，优先识别它属于哪个已有的概念框架（名字），用框架名来组织和表达，而不是自己重新描述。具体操作：1) prompt设计时引用已有框架名而非冗长描述；2) 用户积累个人知识时用概念名字归类而非逐条记录；3) 多agent通信用"任务类型+框架名"作为高效协议。核心理念：我们知道的比能表达的更多，名字是保存知识完整性最完整的形式。
+§
+飞书项目管理Base: https://my.feishu.cn/base/EK1nb34O6a2LKbsDsmMcr4HMn5M (token: EK1nb34O6a2LKbsDsmMcr4HMn5M)，表「项目」ID: tblXk8QjpHEhVeZQ，字段：ID/项目名称/描述/状态/优先级/开始日期/截止日期/负责人/完成度。后续用 lark-base skill 操作。
+用户偏好：减少任务时直接设置提醒时间，不询问，根据任务内容判断。
+§
+User prefers video generation outputs to be organized in a specific directory structure: `/vol1/1000/文档库/20-Studio/视频生成/[Project_Name]/`. Each project folder should contain the video file and a `prompt.txt` file.
+§
+User wants a multi-dimensional table (e.g., Feishu Base) to track video generation projects, including fields for Project Name, Prompt, Video Link/File, and Creation Time.
+§
+User is using Doubao-Seedance-2.0-260128 for video generation and prefers high-quality, multi-segment cinematic action sequences (e.g., 'Jian Lai' style).

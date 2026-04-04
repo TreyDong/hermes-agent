@@ -207,7 +207,7 @@
     {
       "id": "7c7c83ac1006",
       "name": "\u6bcf\u65e5 Herms \u8bb0\u5fc6\u5907\u4efd",
-      "prompt": "cd ~/.hermes && git add -A && git commit -m \"Backup: $(date +%Y-%m-%d)\"",
+      "prompt": "cd ~/.hermes && git add -A && git commit -m \"Backup: $(date +\\%Y-\\%m-\\%d)\" && git push",
       "skills": [],
       "skill": null,
       "model": null,
@@ -228,7 +228,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-04-04T23:23:59.171048+08:00",
-      "next_run_at": "2026-04-05T00:55:00+08:00",
+      "next_run_at": "2026-04-06T00:55:00+08:00",
       "last_run_at": null,
       "last_status": null,
       "last_error": null,
@@ -236,5 +236,5 @@
       "origin": null
     }
   ],
-  "updated_at": "2026-04-04T23:23:59.171707+08:00"
+  "updated_at": "2026-04-05T00:55:14.120402+08:00"
 }
