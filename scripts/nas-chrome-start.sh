@@ -1,0 +1,2 @@
+#!/bin/bash
+sshpass -p '11114444' ssh banana@192.168.31.154 'pkill -f "remote-debugging-port=9222" 2>/dev/null; sleep 1; nohup /home/banana/.cache/ms-playwright/chromium-1217/chrome-linux64/chrome --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-agent --no-sandbox --disable-gpu > /tmp/chrome.log 2>&1 & sleep 3; curl -s http://localhost:9222/json/version'

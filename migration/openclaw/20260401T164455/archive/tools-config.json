@@ -1,0 +1,13 @@
+{
+  "profile": "coding",
+  "web": {
+    "search": {
+      "provider": "duckduckgo",
+      "enabled": true
+    }
+  },
+  "exec": {
+    "ask": "off",
+    "security": "full"
+  }
+}

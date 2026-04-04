@@ -1,0 +1,30 @@
+# Secrets
+.env
+auth.json
+honcho.json
+hindsight.json
+
+# Databases
+*.db
+*.db-shm
+*.db-wal
+
+# Caches and media
+audio_cache/
+image_cache/
+images/
+cache/
+logs/
+checkpoints/
+sessions/
+models_dev_cache.json
+interrupt_debug.log
+
+# Other ephemeral system state
+gateway.pid
+gateway_state.json
+discord_threads.json
+channel_directory.json
+.skills_prompt_snapshot.json
+.update_check
+hermes-agent/

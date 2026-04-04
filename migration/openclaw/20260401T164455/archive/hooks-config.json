@@ -1,0 +1,19 @@
+{
+  "internal": {
+    "enabled": true,
+    "entries": {
+      "boot-md": {
+        "enabled": true
+      },
+      "bootstrap-extra-files": {
+        "enabled": true
+      },
+      "command-logger": {
+        "enabled": true
+      },
+      "session-memory": {
+        "enabled": true
+      }
+    }
+  }
+}

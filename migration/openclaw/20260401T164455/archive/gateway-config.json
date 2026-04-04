@@ -1,0 +1,28 @@
+{
+  "mode": "local",
+  "auth": {
+    "mode": "token",
+    "token": "637374e14740d65dac639e0e7bbbe483b59c2ed323c4030c"
+  },
+  "port": 18789,
+  "bind": "loopback",
+  "tailscale": {
+    "mode": "off",
+    "resetOnExit": false
+  },
+  "controlUi": {
+    "allowInsecureAuth": true
+  },
+  "nodes": {
+    "denyCommands": [
+      "camera.snap",
+      "camera.clip",
+      "screen.record",
+      "contacts.add",
+      "calendar.add",
+      "reminders.add",
+      "sms.send",
+      "sms.search"
+    ]
+  }
+}
