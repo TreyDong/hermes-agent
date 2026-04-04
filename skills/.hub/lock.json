@@ -1,1 +1,19 @@
-{"version": 1, "installed": {}}
+{
+  "version": 1,
+  "installed": {
+    "qmd": {
+      "source": "official",
+      "identifier": "official/research/qmd",
+      "trust_level": "builtin",
+      "scan_verdict": "dangerous",
+      "content_hash": "sha256:cebbdbaa558d7d4b",
+      "install_path": "research/qmd",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {},
+      "installed_at": "2026-04-04T11:16:19.029063+00:00",
+      "updated_at": "2026-04-04T11:16:19.029075+00:00"
+    }
+  }
+}

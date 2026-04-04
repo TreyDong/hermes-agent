@@ -28,3 +28,5 @@ channel_directory.json
 .skills_prompt_snapshot.json
 .update_check
 hermes-agent/
+browser_recordings/
+skills/.hub/index-cache/

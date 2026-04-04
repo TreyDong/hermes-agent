@@ -12,7 +12,7 @@ Hermes在Discord是纯文本模式，无法监听/回应语音频道。用户曾
 §
 Hermes Discord session加载Bug（2026-04-06）：gateway/session.py 的 load_transcript() 只读 .jsonl，但 run_agent.py 写 session 用的是 sessions/session_{id}.json（三源：jsonl/json/SQLite取最长）。修复已写但需restart gateway生效。sessions.json索引有时脱节（指向旧session ID）。
 §
-千帆（chengfeng.xiaohongshu.com）：393635106@qq.com / Buzaiyouyu1。cf-cli在Mac ~/.local/bin/。浏览器自动化（2026-04-05）：agent-browser（skills.sh/vercel-labs/agent-browser）已装在Mac（Chrome端口9223）和NAS（Chrome端口9222）。SSH NAS：sshpass -p '11114444' ssh -o StrictHostKeyChecking=no -p 2222 banana@192.168.31.154
+千帆（chengfeng.xiaohongshu.com）：393635106@qq.com / Buzaiyouyu1。cf-cli在Mac ~/.local/bin/。浏览器自动化（2026-04-05）：agent-browser（skills.sh/vercel-labs/agent-browser）已装在Mac（Chrome端口9223）和NAS（Chrome端口9222）。SSH NAS：sshpass -p '11114444' ssh -o StrictHostKeyChecking=no banana@192.168.31.154（端口22）
 §
 Hermes cron：每日01:00 Memory Dreaming；03:00 Skill Health Check；07:30 早报（twitter-cli，Discord格式化）。输出: ~/.hermes/cron/output/
 早报Twitter bug：Agent总把昨天推文误判为今日已发。对比createdAtLocal前8位与`date +%Y-%m-%d`。用户名=treydtw。

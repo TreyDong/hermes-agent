@@ -11,7 +11,7 @@ agent:
   max_turns: 200
   tool_use_enforcement: auto
   verbose: false
-  reasoning_effort: medium
+  reasoning_effort: high
   personalities:
     helpful: You are a helpful, friendly AI assistant.
     concise: You are a concise assistant. Keep responses brief and to the point.
@@ -60,6 +60,7 @@ terminal:
   env_passthrough: []
   docker_image: nikolaik/python-nodejs:python3.11-nodejs20
   docker_forward_env: []
+  docker_env: {}
   singularity_image: docker://nikolaik/python-nodejs:python3.11-nodejs20
   modal_image: nikolaik/python-nodejs:python3.11-nodejs20
   daytona_image: nikolaik/python-nodejs:python3.11-nodejs20
@@ -78,6 +79,7 @@ browser:
   allow_private_urls: false
   camofox:
     managed_persistence: false
+  cloud_provider: camofox
 checkpoints:
   enabled: true
   max_snapshots: 50
@@ -239,15 +241,22 @@ skills:
   - ~/.agents/skills
   creation_nudge_interval: 15
   disabled:
-  - apple-reminders
+  - blogwatcher
+  - browsing
+  - cf-cli
+  - chengfeng-autopause
+  - discord-thread-creator
   - find-nearby
+  - linear
   - minecraft-modpack-server
+  - notion
   - pokemon-player
+  - update-config
   - xitter
 honcho: {}
 timezone: Asia/Shanghai
 discord:
-  require_mention: true
+  require_mention: false
   free_response_channels: 1487840297047036105
   auto_thread: true
   reactions: true
@@ -370,3 +379,4 @@ fallback_model:
   model: ark-code-latest
   base_url: https://ark.cn-beijing.volces.com/api/coding
   api_key_env: ARK_API_KEY
+DISCORD_HOME_CHANNEL: '1489841471191515236'
