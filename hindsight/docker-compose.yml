@@ -1,0 +1,26 @@
+services:
+  hindsight:
+    image: hindsight:latest
+    container_name: hermes-hindsight
+    ports:
+      - "18792:8888"
+    volumes:
+      - hindsight-data:/home/hindsight/.pg0
+    environment:
+      - HINDSIGHT_API_LLM_PROVIDER=minimax
+      - HINDSIGHT_API_LLM_API_KEY=${MINIMAX_API_KEY}
+      - HINDSIGHT_API_LLM_MODEL=MiniMax-M2.7-highspeed
+      - HINDSIGHT_API_LLM_BASE_URL=https://api.minimaxi.com/v1
+      - HINDSIGHT_API_EMBEDDINGS_PROVIDER=openai
+      - HINDSIGHT_API_EMBEDDINGS_OPENAI_API_KEY=${SILICONFLOW_API_KEY}
+      - HINDSIGHT_API_EMBEDDINGS_OPENAI_BASE_URL=https://api.siliconflow.cn/v1
+      - HINDSIGHT_API_EMBEDDINGS_OPENAI_MODEL=BAAI/bge-m3
+      - HINDSIGHT_API_RERANKER_PROVIDER=litellm
+      - HINDSIGHT_API_RERANKER_LITELLM_API_KEY=${SILICONFLOW_API_KEY}
+      - HINDSIGHT_API_RERANKER_LITELLM_API_BASE=https://api.siliconflow.cn/v1
+      - HINDSIGHT_API_RERANKER_LITELLM_MODEL=BAAI/bge-reranker-v2-m3
+      - HINDSIGHT_API_MCP_ENABLED=false
+
+volumes:
+  hindsight-data:
+    name: hermes-hindsight-data

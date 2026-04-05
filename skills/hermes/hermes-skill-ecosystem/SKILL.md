@@ -52,16 +52,25 @@ hermes skills install IDENTIFIER --force
 
 被拦截的 skill 仍可通过 `--force` 强制安装（需用户手动确认）。
 
-## 已安装 skill（2026-04-02）
+## 已安装 skill（2026-04-07）
 
+### 微信公众号相关
+- `baoyu-post-to-wechat` — 发布文章/贴图到公众号，支持 API + 浏览器两种方式，多账号
+- `md2wechat` — Markdown → 微信排版 HTML，支持草稿上传、封面/信息图生成、AI 风格写作
+
+### 内容创作
 - `writing-plans`
 - `executing-plans`
 - `brainstorming`
 - `copywriting`
 - `content-strategy`
-- `systematic-debugging`
+
+### 视频 & 媒体
 - `remotion-best-practices`
 - `youtube-summarizer`
+
+### 其他
+- `systematic-debugging`
 
 ## Skill 文件格式
 

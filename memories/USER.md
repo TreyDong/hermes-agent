@@ -1,12 +1,6 @@
-Has both OpenClaw and Hermes installed locally. Prefers Hermes over OpenClaw for execution capability. Confirmed architecture: Hermes as primary agent, OpenClaw as channel adapter (WhatsApp/iMessage) + multi-agent hub (7 agents: main/code/ops/symphony/invest/health/media). OpenClaw agents mapped to Discord accounts via routing rules.
+Hermes为主力agent（/home/banana/.hermes/），OpenClaw作渠道适配（WhatsApp/iMessage）+ 多agent hub（7 agents）。
 §
 用户要求我监督他每天发推特：如果哪天没发推，就公开发推特点名他（今天3月30日开始）。频率：每天1条。用户推特@treydtw（2026-04-05确认，用twitter whoami命令查到）。
-§
-用户关心 Hermes skills 是否‘启用’，需要解释为：skill 是按任务按需加载，不是全部预加载/常驻；他可能继续关注哪些 skill 真正可用、哪些可禁用，也会追问 Discord 里哪些斜杠命令真正受支持。
-§
-用户在 Discord 操作时若说“执行命令 不要回复任何消息”或同义表达，偏好是执行后不输出任何文字。
-§
-用户在 Discord 上要求“只执行命令/不要回复任何内容”时，不只是偏好简短回复，而是要求真正零输出；回复本身会干扰 thread 关闭测试。
 §
 用户问过 Hermes 的多Agent能力、并行子Agent数量上限，以及 autonomous-ai-agents / subagent-driven-development 这类多Agent编排 skill 的设计；后续可用“内置并行子Agent最多3个、无需预创建、按需spawn”来解释。
 §
@@ -20,6 +14,4 @@ Has both OpenClaw and Hermes installed locally. Prefers Hermes over OpenClaw for
 §
 用户在 NAS/飞牛OS 运维任务里偏好我直接 SSH 执行、直接改 compose/直接发请求验证，不喜欢我过度依赖浏览器看页面；若教程网页只是参考，应优先用命令行部署与排查。
 §
-用户TTS偏好：Edge TTS，中文音色 zh-CN-YunxiNeural（2026-03-30从en-US-AriaNeural切换）。
-§
-用户生成视频后，直接发送视频文件到当前Discord子区，不要只说"已生成/视频在XXX"这类话。文件路径是NAS本地 /tmp/video_output/ 目录。
+Discord操作：若说"执行命令/只执行/不要回复任何消息"→真正零输出。视频生成后直接发文件到当前子区，不只发文字。文件路径 /tmp/video_output/。
