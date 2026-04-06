@@ -30,3 +30,12 @@ channel_directory.json
 hermes-agent/
 browser_recordings/
 skills/.hub/index-cache/
+
+# Runtime / session state
+.hermes_history
+memories/MEMORY.md
+memories/USER.md
+cron/jobs.json
+cron/output/
+pastes/
+skills/x-tweet-fetcher/
