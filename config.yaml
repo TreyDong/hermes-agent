@@ -278,7 +278,7 @@ approvals:
   mode: smart
   timeout: 60
 command_allowlist:
-- script execution via -e/-c flag
+- shell command via -c/-lc flag
 quick_commands:
   disk:
     type: exec
