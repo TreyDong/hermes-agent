@@ -11,6 +11,19 @@ description: Twitter/X CLI 工具箱 — 发推、读取、搜索、管理。当
 
 **遇到推文链接 → 先试 `twitter article`，不要开浏览器。**
 
+> ⚠️ `browser_navigate` 是最后手段。只有当 `twitter article` 明确失败（报错或无输出）时才考虑浏览器。
+
+| 场景 | 命令 |
+|------|------|
+| 推文链接 → 获取内容 | `twitter article <URL 或 ID>` |
+| 搜推文 | `twitter search <关键词>` |
+| 用户最新推文 | `twitter user-posts <@handle>` |
+| 发推 | `twitter post "<内容>"` |
+| 点赞 | `twitter like <ID>` |
+| 转推 | `twitter retweet <ID>` |
+| 搜索用户 | `twitter search --from <user>` |
+| 时间线 | `twitter feed` |
+
 | 场景 | 命令 |
 |------|------|
 | 推文链接 → 获取内容 | `twitter article <URL 或 ID>` |

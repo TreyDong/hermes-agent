@@ -2,14 +2,24 @@ model:
   default: MiniMax-M2.7-highspeed
   provider: minimax-cn
   base_url: https://api.minimaxi.com/anthropic
-providers: {}
-fallback_providers: []
+providers:
+  volcengine-ark:
+    api: https://ark.cn-beijing.volces.com/api/coding
+    name: volcengine-ark
+    api_key: db44064f-5555-4369-bd47-63a9cfde64a1
+    default_model: ark-code-latest
+fallback_providers:
+  - provider: volcengine-ark
+    model: ark-code-latest
+    base_url: https://ark.cn-beijing.volces.com/api/coding
+    api_key: db44064f-5555-4369-bd47-63a9cfde64a1
 credential_pool_strategies:
   minimax-cn: fill_first
 toolsets:
 - hermes-cli
 agent:
-  max_turns: 200
+  max_turns: 300
+  gateway_timeout: 1800
   tool_use_enforcement: auto
   verbose: false
   reasoning_effort: high
@@ -177,7 +187,7 @@ display:
   tool_progress_command: true
   tool_preview_length: 0
   theme_mode: auto
-  tool_progress: all
+  tool_progress: new
   background_process_notifications: all
 privacy:
   redact_pii: false
@@ -234,7 +244,7 @@ delegation:
   model: MiniMax-M2.7-highspeed
   provider: minimax-cn
   base_url: https://api.minimaxi.com/anthropic
-  api_key: sk-cp-ONegEDvtyWRrgok-rH7lZbEFtwBgWvRhyIMfXXJ3u1D-DMuYqeeBMfy30b5JgBc6v93rLfrmssxPZzfEXAH6ZZf4M9gxhO3OFbIDU2S89LfgfYGK16IITCA
+  api_key: sk-cp-NepY4eFzwnNobah-3bFiyvoacTLnfnHpRbjY_vS5cga6dSiUvTQFrOwRozhZjd06dfPIg2FWperwbuEWKuMFs3s3YAOYcND4H4CfYrVxaixDMgfMZ4bJ6wc
   max_iterations: 50
   default_toolsets:
   - terminal
@@ -255,7 +265,7 @@ prefill_messages_file: ''
 skills:
   external_dirs:
   - ~/.agents/skills
-  creation_nudge_interval: 15
+  creation_nudge_interval: 10
   disabled:
   - blogwatcher
   - cf-cli
@@ -279,6 +289,8 @@ approvals:
   timeout: 60
 command_allowlist:
 - shell command via -c/-lc flag
+- script execution via -e/-c flag
+- overwrite system file via redirection
 quick_commands:
   disk:
     type: exec
@@ -302,19 +314,18 @@ security:
     shared_files: []
 cron:
   wrap_response: true
-_config_version: 11
+logging:
+  level: INFO
+  max_size_mb: 5
+  backup_count: 3
+_config_version: 12
 clarify:
   timeout: 120
 unauthorized_dm_behavior: pair
-custom_providers:
-- name: volcengine-ark
-  base_url: https://ark.cn-beijing.volces.com/api/coding
-  model: ark-code-latest
-  api_key: db44064f-5555-4369-bd47-63a9cfde64a1
 session_reset:
   mode: both
   idle_minutes: 720
-  at_hour: 4
+  at_hour: 6
 group_sessions_per_user: true
 streaming:
   enabled: false
@@ -369,14 +380,14 @@ code_execution:
   timeout: 600
   max_tool_calls: 200
 web:
-  backend: null
+  backend: tavily
 mcp_servers:
   MiniMax:
     command: uvx
     args:
     - minimax-coding-plan-mcp
     env:
-      MINIMAX_API_KEY: sk-cp-ONegEDvtyWRrgok-rH7lZbEFtwBgWvRhyIMfXXJ3u1D-DMuYqeeBMfy30b5JgBc6v93rLfrmssxPZzfEXAH6ZZf4M9gxhO3OFbIDU2S89LfgfYGK16IITCA
+      MINIMAX_API_KEY: sk-cp-NepY4eFzwnNobah-3bFiyvoacTLnfnHpRbjY_vS5cga6dSiUvTQFrOwRozhZjd06dfPIg2FWperwbuEWKuMFs3s3YAOYcND4H4CfYrVxaixDMgfMZ4bJ6wc
       MINIMAX_API_HOST: https://api.minimaxi.com
     tools:
       include:
@@ -388,9 +399,4 @@ platforms:
   discord:
     enabled: true
 GATEWAY_ALLOW_ALL_USERS: false
-fallback_model:
-  provider: volcengine-ark
-  model: ark-code-latest
-  base_url: https://ark.cn-beijing.volces.com/api/coding
-  api_key_env: ARK_API_KEY
 DISCORD_HOME_CHANNEL: '1489841471191515236'
