@@ -146,11 +146,27 @@ sudo docker rm -f v2raya   # 如果它原本是 docker run 创建的
 sudo docker compose up -d
 ```
 
+## FN OS 端口占用（关键）
+
+FN OS 开机自启的系统服务会占用标准端口，**任何 docker-compose 模板照搬到 FN OS 前必须调整端口**：
+
+| 端口 | 进程 | 归属 |
+|------|------|------|
+| 8000 | nginx (飞牛 webui) | FN OS |
+| 5432 | postgres (trim 用户) | FN OS 系统数据库 |
+| 6379 | redis-server (trim-me 用户) | FN OS 用户态服务 |
+| 9090 | prometheus (nobody 用户) | FN OS 监控 |
+
+常见偏移方案：+100 或 +10 避开，如 8000→8100, 5432→5433, 6379→6380, 9090→9091。
+
 ## 常见坑
 
+- **FN OS 系统端口占用**：这是服务起不来的最常见原因，不是 docker compose 本身的问题。先 `ss -tlnp | grep <port>` 确认端口是否被占用。
 - **浏览器优先级过高**：用户给了教程网页 + NAS 地址时，先 SSH 干活，再把网页当参考，不要反过来。
 - **误判“compose down 能接管 run 容器”**：不能。
-- **sudo 提示符混乱**：自动化工具容易把密码错误地二次发送成普通命令，导致出现 `11114444: command not found` 之类噪音。遇到这种情况，按“每条命令后仅在 sudo 提示出现时再发密码”的策略处理。
+- **sudo 提示符混乱**：自动化工具容易把密码错误地二次发送成普通命令，导致出现 `11114444: command not found` 之类噪音。遇到这种情况，按"每条命令后仅在 sudo 提示出现时再发密码"的策略处理。
+- **Grafana 容器以内部 UID 472 运行，但 Docker 创建的 named volume 的 owner 是 root 或Administrators 组用户，导致 permission denied**。表现：`mkdir: can't create directory '/var/lib/grafana/plugins': Permission denied`。修复：删掉旧 volume 让 Docker 重建，或确保 volume 目录的 owner 是 472。
+- **官方 docker-compose.yml.example 本身有 bug**：常见问题包括（1）重复的环境变量行导致覆盖残缺；（2）服务依赖 `condition: service_healthy` 但 api 本身没有定义 healthcheck；（3）漏定义 named volume（如 grafana-data）。部署前先对照官方仓库最新 tag 版本检查。
 - **网络验证超时**：`curl https://api.ipify.org` 可能因代理/DNS/证书卡住，优先加 `-4 -s --max-time 20`。
 
 ### v2rayA 代理出口测试

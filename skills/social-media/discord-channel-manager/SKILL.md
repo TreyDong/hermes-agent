@@ -126,13 +126,47 @@ Archive (category)
   └── knowledge (text)
 ```
 
-## 频道 type 值
+## 频道 type 值（API v10）
 
 - `0` — 文字频道
 - `2` — 语音频道
 - `4` — 分类（Category）
-- `11` — Forum 频道
-- `15` — 动态频道（线程）
+- `11` — Forum thread（在已有 Forum 频道下创建）
+- `15` — **Forum 频道**（顶层的公告/讨论区）
+- `16` — Media Forum 频道
+
+> ⚠️ Forum 频道是 `type=15`，不是 `11`。`type=11` 是在 Forum 频道下创建的具体 thread。
+
+### 创建 Forum 频道（顶层的）
+
+```bash
+curl -s -x "$PROXY" -X POST \
+  -H "Authorization: Bot $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"name": "频道名", "type": 15}' \
+  "https://discord.com/api/v10/guilds/$GUILD_ID/channels"
+```
+
+### 在 Forum 频道下创建 Thread
+
+Forum thread 是 `type=11`，需要在 Forum 频道内创建：
+
+```python
+result = api('POST', f'/channels/{FORUM_CHANNEL_ID}/threads', {
+    'name': 'Thread 名称',
+    'type': 11,
+    'message': {'content': '第一条消息内容'}
+})
+```
+
+### ⚠️ Cron Job Prompt 里的 thread ID 陷阱
+
+如果 cron job 的 deliver 指向 Discord thread，**不要**在 Prompt 里写死 thread ID 或让 agent 调用 messaging 工具发消息。这会造成两条发送路径冲突：
+
+- Prompt 让 agent 往 Thread A 发
+- Deliver 机制往 Thread B 发
+
+**正确做法：** Prompt 只生成内容，Deliver 机制负责路由和发送。Prompt 不要出现任何 thread/channel ID。
 
 ## 常用操作
 

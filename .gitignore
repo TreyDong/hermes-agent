@@ -39,3 +39,4 @@ cron/jobs.json
 cron/output/
 pastes/
 skills/x-tweet-fetcher/
+.worktrees/
