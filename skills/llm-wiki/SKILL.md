@@ -26,10 +26,27 @@ Wiki 层：       /vol1/1000/知识库/10-Base/02-Library/
 
 ### 第一步：扫描待处理文件
 
-```bash
-# 找出所有 status: new 或 status: done compiled: false 的文件
-find /vol1/1000/知识库/10-Base/01-Raw/01-Inbox/ -name "*.md" | xargs grep -L "status: done"
+> ⚠️ **重要**：`grep -L` 的 exit code 含义与直觉相反——当文件**包含**匹配时返回 1，**不包含**时返回 0。
+> 这导致 `find | xargs grep -L "status: done"` 的结果容易误判。
+> **必须用 Python 做精确检查**，不要依赖 grep 的退出码。
+
+```python
+# 找出所有 NOT compiled: true 的 .md 文件（精确检查）
+import os
+inbox = "/vol1/1000/知识库/10-Base/01-Raw/01-Inbox/"
+uncompiled = []
+for f in sorted(os.listdir(inbox)):
+    if not f.endswith(".md"):
+        continue
+    path = os.path.join(inbox, f)
+    with open(path) as fh:
+        content = fh.read()
+    if "compiled: true" not in content:
+        uncompiled.append(f)
+# uncompiled 即为待处理文件列表
 ```
+
+**判断标准**：严格以 `compiled: true` 在 frontmatter 中是否存在为准，而非 `status: done`（后者可能因引号格式导致漏检）。
 
 ### 第二步：对每篇 raw 执行编译
 
@@ -47,7 +64,11 @@ find /vol1/1000/知识库/10-Base/01-Raw/01-Inbox/ -name "*.md" | xargs grep -L 
 
 ### 第三步：标记完成
 
-不动原文件，在 raw 文件的 frontmatter 中追加 `compiled: true`。
+使用 `patch` tool 在 raw 文件 frontmatter 中设置 `compiled: true`：
+- **已有 frontmatter**：在 `status: done` 后追加 `compiled: true`
+- **无 frontmatter**（如旧文件漏填 metadata）：先在文件头部插入完整的 frontmatter block，再追加 `compiled: true`
+
+> 注意：CLAUDE.md 规范明确禁止 metadata 不全的资料进入 Raw/。发现此类文件应一并补全。
 
 ### 第四步：更新 index.md
 

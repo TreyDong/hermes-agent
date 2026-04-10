@@ -1,21 +1,15 @@
 # Memory
 §
-问题很清楚了。在 `auth.py` 第 43 行：
-
-```python
-jar = loader(domain_name=".xiaohongshu.com")
-```
-
-`.xiaohongshu.com` 这个前缀过滤太严格了——Chrome 实际存储的部分 cookie domain 不是以点开头的，或者恰恰相反是更具体的子域名，导致匹配不上。
-
-修复：去掉点，改用 `"xiaohongshu.com"` 作为 substring 匹配，同时增加 `"chengfeng.xiaohongshu.com"` 兜底。
+Notion AI CLI（April 8）：`/home/banana/bin/notion-ai-cli`——opencli经LAN IP(192.168.31.132)操控Mac Chrome，JS注入触发Notion AI回复；需探索Notion API替代GUI方案
 
 §
-[main 793023f] fix(auth): 扩大 cookie domain pattern 匹配范围，提升登录成功率
- 1 file changed, 31 insertions(+), 20 deletions(-)
+Discord bot token失效（April 9）：cron 22:00复盘提醒发送失败，discocli返回401；token MTQ4ODc3OT...已过期，需重新获取并更新到discocli token文件和openclaw.json
 
 §
-[Banana] 修复https://github.com/TreyDong/chengfeng-cli 这个项目里面获取cookies的部分，匹配的ip太少，导致用户进入首页的时候会获取不到cookies
+Honcho NAS部署（April 9）：FN OS原生服务占用8000/5432/6379/9090端口；调整compose映射到8100/5433/6380/9091；官方v3.0.5模板有CACHE_URL指向database而非redis的bug
+
+§
+x-tweet-fetcher bug修复：HTTPError是URLError子类，异常处理顺序错误导致404被归类为"网络错误"；已修复异常处理顺序
 
 §
 Skills生态：~150+ skills，覆盖飞书/Discord/MLOps/社交媒体；skills目录`~/.hermes/skills/`

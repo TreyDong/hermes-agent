@@ -10,6 +10,6 @@
 
 §Twitter：@treydtw，监督每日发推
 
-§当前重点项目：Hermes教程（橙皮书风格，任务已建）§Auto Research pipeline（选题→自动研究→素材库→人工加工→发布）
+§当前重点项目：Hermes教程（橙皮书风格）；Auto Research pipeline（选题→自动研究→素材库→人工加工→发布）；Notion AI CLI（/home/banana/bin/notion-ai-cli）
 
 §任务管理：task-sync skill（Discord帖子↔飞书任务↔本地文档三方同步），真相源：`/vol1/1000/知识库/00-HQ/TASK.md`
