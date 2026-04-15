@@ -1,0 +1,27 @@
+{
+  "enabled": true,
+  "workspace": "treydong",
+  "aiPeer": "hermes",
+  "memoryMode": "hybrid",
+  "saveMessages": true,
+  "writeFrequency": "async",
+  "baseUrl": "http://127.0.0.1:8100",
+  "hosts": {
+    "hermes": {
+      "peerName": "banana",
+      "workspace": "treydong",
+      "aiPeer": "hermes",
+      "memoryMode": "hybrid",
+      "writeFrequency": "async",
+      "recallMode": "hybrid",
+      "sessionStrategy": "per-directory",
+      "enabled": true,
+      "saveMessages": true,
+      "contextTokens": 8000,
+      "dialecticMaxChars": 1000,
+      "baseUrl": "http://127.0.0.1:8100",
+      "observationMode": "directional"
+    }
+  },
+  "apiKey": "local"
+}
