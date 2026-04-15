@@ -87,3 +87,44 @@ After extracting, cross-reference findings:
 - Try `/#/route-name` paths in browser if available
 - Check `/new-website/index.html` for hash-routed SPAs
 - Look for `window.__INITIAL_STATE__` or similar data hydration patterns in the HTML
+
+## Critical Lessons Learned
+
+### Lesson 1: Always verify download success with byte count
+`curl` can return exit code 0 but write 0 bytes when the site redirects or the JS URL has a content hash. **Always** run:
+```bash
+curl -sL "https://TARGET.com/static/js/app.js" -o app.js && wc -c app.js
+# Must show >0 bytes before proceeding
+```
+If 0 bytes: try different URL patterns (add/remove `/static/`, try `vendors~app.*.js` instead).
+
+### Lesson 2: Use Python, not shell grep, for minified JS with Chinese/obfuscated text
+Shell `grep` and `rg` fail on Chinese characters in minified bundles (range errors, encoding issues). Use `execute_code` with Python:
+```python
+import re
+with open('app.js', 'r', encoding='utf-8', errors='ignore') as f:
+    content = f.read()
+
+# Extract Chinese text
+chinese = re.findall(r'[\u4e00-\u9fff]{2,50}', content)
+# Deduplicate while preserving order
+seen = set(); result = []
+for c in chinese:
+    if c not in seen:
+        seen.add(c); result.append(c)
+for c in result: print(c)
+```
+
+### Lesson 3: meta description is a product catalog goldmine
+The `<meta name="description">` tag in Vue SPA HTML headers often contains a full enumerated product list in English, including all category names and product types. Always extract it:
+```python
+meta = re.search(r'<meta name="description" content="([^"]+)"', html_content)
+if meta:
+    print(meta.group(1))
+```
+
+### Lesson 4: webpackJsonp bundle format
+Vue/React apps use webpack, which wraps code in `window["webpackJsonp"]=window["webpackJsonp"]||[]).push(...)`. The JS content starts after the webpack bootstrap and is the actual app code. Don't be alarmed by the unusual format—this is normal and the text is still extractable via Python regex.
+
+### Lesson 5: wget mirror fails silently on SPAs
+`wget --mirror` often produces 0 files for Vue SPAs because the crawler doesn't execute JS to discover routes. Do not rely on it. Always fall back to: (1) curl the HTML to find JS bundle URLs, (2) curl the JS bundle, (3) parse with Python.
